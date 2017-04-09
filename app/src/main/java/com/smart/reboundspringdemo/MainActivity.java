@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     Spring mSpring = SpringSystem.create()
             .createSpring()
-//            .setVelocity(5)
             //张力系数、阻力系数
 //            ;
             .setSpringConfig(new SpringConfig(100, 20));
@@ -125,10 +124,10 @@ public class MainActivity extends AppCompatActivity {
             end = 0;
         }
         SpringForce springForce = new SpringForce(end)
-                //阻力
+                //弹性阻尼，值越大，摆动次数也少，当为1时完全不摆动，它主要体现摆动次数
                 .setDampingRatio(1.0f)
 //                .setDampingRatio(SpringForce.DAMPING_RATIO_NO_BOUNCY)
-                //张力
+                //弹性生硬度，值越大，弹簧越不容易摆动，摆动时间越短，它主要体现摆动时间
                 .setStiffness(100.0f);
 //                .setStiffness(SpringForce.STIFFNESS_VERY_LOW);
         final SpringAnimation springX = new SpringAnimation(view, SpringAnimation.SCALE_X).setSpring(springForce);
